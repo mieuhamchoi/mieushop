@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{ 
     margin: 0;
     padding: 0;
@@ -6,9 +10,6 @@
     font-size: 15px;
     box-sizing: border-box;
 }
-
-
-
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

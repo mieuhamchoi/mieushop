@@ -140,6 +140,7 @@ $maxWC: 1400px;
                     padding: 0.5em;
                     border-radius: 1em;
                     margin: 0 1em;
+                    text-decoration: none;
                     .avatar_box {
                         width: 100%;
                         height: 60%;
@@ -160,15 +161,18 @@ $maxWC: 1400px;
                             font-family: $fontMenuText;
                             color: grey;
                             font-size: 1.2em;
+                            cursor: pointer;
                         }
                         .name_text {
                             font-family: $fontProductName;
                             font-size: 1em;
                             color: grey;
+                            cursor: pointer;
                         }
                         .price_text {
                             font-family: $fontPrice;
                             font-size: 1em;
+                            cursor: pointer;
                         }
                         .btn_buy {
                             font-size: 0.7em;

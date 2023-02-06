@@ -42,7 +42,7 @@
                     <a [routerLink]="['/catalog/' + catalog.id]" target="_blank" routerLinkActive="router-link-active"  class="text_link">xem tất cả</a>
                 </div>
                 <div class="menu_product">
-                    <div *ngFor="let product of filterProductByCatalogId(catalog.id); let j = index" class="product_box">
+                    <a [routerLink]="['/product/' + product.id]" target="_blank" *ngFor="let product of filterProductByCatalogId(catalog.id); let j = index" class="product_box">
                         <div class="avatar_box">
                             <img class="avatar_img" [src]="getProductPicture(product.avatarLink)">
                         </div>
@@ -53,7 +53,7 @@
                             <span class="price_text" style="color: blue">{{product.price | formatVnd}}</span>
                             <button class="btn_buy" mat-stroked-button color="primary">Thêm vào giỏ hàng</button>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

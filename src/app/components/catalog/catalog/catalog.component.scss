@@ -1,12 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+$fontMenuText: 'Oswald', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap');
+$fontProductName: 'Exo', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+$fontPrice: 'Roboto Mono', monospace;
 $mw: 1400px;
 .page_box {
     width: $mw;
     font-size: 15px;
     .history_link_groups {
         font-size: 1em;
+        border-bottom: 1px solid grey;
         .history_link-item {
             text-decoration: none;
             font-weight: 500;
+        }
+    }
+    .product_box {
+        min-width: 200px;
+        min-height: 320px;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        border-radius: 1em;
+        margin: 0 1em;
+        text-decoration: none;
+        .avatar_box {
+            width: 100%;
+            height: 60%;
+            cursor: pointer;
+            .avatar_img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+        .info_box {
+            display: flex;
+            flex-direction: column;
+            .brand_text {
+                font-family: $fontMenuText;
+                color: grey;
+                font-size: 1.2em;
+                cursor: pointer;
+            }
+            .name_text {
+                font-family: $fontProductName;
+                font-size: 1em;
+                color: grey;
+                cursor: pointer;
+            }
+            .price_text {
+                font-family: $fontPrice;
+                font-size: 1em;
+                cursor: pointer;
+            }
+            .btn_buy {
+                font-size: 0.7em;
+            }
         }
     }
 }

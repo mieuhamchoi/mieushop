@@ -16,37 +16,46 @@ interface Product {
   catalogId: number
 }
 @Component({
-  selector: 'app-catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class CatalogComponent {
-  public catalogId:number  = 0;
+export class ProductComponent {
+  public productId:number = 0;
+  public product: Product = {
+    id: 0,
+    name: '',
+    des: '',
+    price: 0,
+    avatarLink: '',
+    brand: '',
+    catalogId: 0
+  };
   public catalogList: Catalog[] = [];
-  public productList: Product[] = [];
 
-  constructor(public commonService: CommonService, private route: ActivatedRoute, private router: Router, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {}
 
-  public ngOnInit():void {
+  public ngOnInit() {
+    this.productId = Number(this.route.snapshot.paramMap.get('productId'));
+
     this.productService.getCatalogList().subscribe(data => {
       this.catalogList = data;
     }, er => {
       console.log('er', er)
     })
 
-    this.catalogId = Number(this.route.snapshot.paramMap.get('catalogId'));
-
-    if (this.catalogId) {
-      this.productService.getProductList().subscribe(data => {
-        this.productList = data.filter((product:Product) => {  return product.catalogId === this.catalogId })
-        console.log(this.productList)
-      }, er => {
-        console.log('er', er)
-      })
-    }else {
-      this.router.navigateByUrl('');
-    }
+    this.productService.getProductList().subscribe(data => {
+      for (let i in data) {
+        if (data[i].id == this.productId) {
+          this.product = data[i];
+          break;
+        }
+      }
+    }, er => {
+      console.log('er', er)
+    })
   }
+
   public getCatalogById(catalogId: number):any {
     for (let i in this.catalogList) {
       if (this.catalogList[i].id == catalogId) {
@@ -58,4 +67,5 @@ export class CatalogComponent {
   public getProductPicture(link: string): string {
     return window.location.origin + "/assets/img/dienthoai/" + link;
   }
+
 }

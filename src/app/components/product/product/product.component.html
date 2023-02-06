@@ -1,0 +1,24 @@
+<div class="page_box">
+    <span class="history_link_groups">
+        <a [routerLink]="['']" routerLinkActive="router-link-active"  class="history_link-item" href="">Trang Chủ > </a>
+        <a [routerLink]="['']" class="history_link-item" href="">Sản Phẩm > </a>
+        <a [routerLink]="['@/catalog/' + product.catalogId]" class="history_link-item" href="">{{getCatalogById(product.catalogId).name}} > </a>
+        <a class="history_link-item" href="">{{product.name}}</a>
+    </span>
+    <div class="mt-3 grid grid-cols-2 gap-2 border border-grey p-3">
+        <div class="picture_box col-span-1 p-4 border border-grey">
+            <img class="product-img" [src]="getProductPicture(product.avatarLink)">
+        </div>
+        <div class="info_box col-span-1 p-4">
+            <span class="info_name">Tên sản phẩm: {{ product.name | uppercase}}</span>
+            <span class="info_brand">Nhãn hiệu: {{ product.brand | uppercase}}</span>
+            <span class="info_price text-blue-500">Chỉ: {{product.price | formatVnd}}</span>
+            <button class="info-btn" mat-stroked-button color="primary">Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+    <div class="w-100 border border-grey mt-2">
+        <span class="des_info">
+            {{product.des}}
+        </span>
+    </div>
+</div>

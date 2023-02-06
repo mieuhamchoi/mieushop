@@ -23,6 +23,7 @@ import { FormatVndPipe } from './components/shared/pipes/formatVnd/format-vnd.pi
 // call api
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogComponent } from './components/catalog/catalog/catalog.component';
+import { ProductComponent } from './components/product/product/product.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CatalogComponent } from './components/catalog/catalog/catalog.component
     PageNotFoundComponent,
     FormatVndPipe,
     CatalogComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

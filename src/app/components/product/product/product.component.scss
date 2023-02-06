@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+$fontMenuText: 'Oswald', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap');
+$fontProductName: 'Exo', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+$fontPrice: 'Roboto Mono', monospace;
+.page_box {
+    width: 1400px;
+    font-size: 15px;
+    .history_link_groups {
+        font-size: 1em;
+        border-bottom: 1px solid grey;
+        .history_link-item {
+            text-decoration: none;
+            font-weight: 500;
+        }
+    }
+    .picture_box {
+        max-height: 300px;
+        display: flex;
+        justify-content: center;
+        .product-img {
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+    .info_box {
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .info_name {
+            color: grey;
+            font-family: $fontMenuText;
+            font-size: 1.5em;
+        }
+        .info_brand {
+            color: grey;
+            font-family: $fontProductName;
+            font-size: 1.5em;
+        }
+        .info_price {
+            font-family: $fontPrice;
+            font-size: 1.5em;
+        }
+        .info-btn {
+            width: 300px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    .des_info {
+        font-size: 1.5em;
+        font-family: 'Courier New', Courier, monospace;
+    }
+}

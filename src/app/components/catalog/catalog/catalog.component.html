@@ -1,0 +1,7 @@
+<div class="page_box">
+    <span class="history_link_groups">
+        <a [routerLink]="['']" routerLinkActive="router-link-active"  class="history_link-item" href="">Trang Chủ > </a>
+        <a [routerLink]="['']" class="history_link-item" href="">Danh Mục > </a>
+        <a *ngIf="getCatalogById(catalogId) != null" [routerLink]="['/catalog/' + catalogId]" class="history_link-item" href="">{{getCatalogById(catalogId).name}}</a>
+    </span>
+</div>

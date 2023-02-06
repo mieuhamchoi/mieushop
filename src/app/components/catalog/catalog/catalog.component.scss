@@ -1,0 +1,12 @@
+$mw: 1400px;
+.page_box {
+    width: $mw;
+    font-size: 15px;
+    .history_link_groups {
+        font-size: 1em;
+        .history_link-item {
+            text-decoration: none;
+            font-weight: 500;
+        }
+    }
+}

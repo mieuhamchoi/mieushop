@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CatalogComponent } from './components/catalog/catalog/catalog.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { 
+    path: '', 
+    component: HomeComponent,
+    children: [
+      { 
+        path: 'catalog/:catalogId', 
+        component: CatalogComponent 
+      },
+    ] 
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 

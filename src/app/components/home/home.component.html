@@ -4,7 +4,59 @@
     <app-header class="header_box"></app-header>
     <!-- //body -->
     <div class="container_box">
-        
+        <div *ngIf="checkContentLoad() === true" class="menu_box">
+            <ngb-carousel
+                #carousel
+                [interval]="2000"
+                [pauseOnHover]="pauseOnHover"
+                [pauseOnFocus]="pauseOnFocus"
+                (slide)="onSlide($event)"
+                class="carousel_menu"
+            >
+                <ng-template ngbSlide *ngFor="let img of images; index as i">
+                    <div class="carousel-caption">
+                        <h3>My slide {{i + 1}} title</h3>
+                    </div>
+                    <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+                        <div class="picsum-img-wrapper">
+                            <img [src]="img" alt="My image {{i + 1}} description" />
+                        </div>
+                    </a>
+                </ng-template>
+            </ngb-carousel>
+            <div class="menu_pop">
+                <a [routerLink]="['/catalog/' + item.id]" target="_blank" routerLinkActive="router-link-active"  *ngFor="let item of menuItems; let index = index" class="menu-item">
+                    <img class="item--img" [src]="getLinkAvatar(item.icon)">
+                    <span class='item--text'>{{item.name}}</span>
+                </a>
+                <div *ngFor="let item of menuTests; let index = index" class="menu-item">
+                    <img class="item--img" [src]="getLinkAvatar(item.icon)">
+                    <span class='item--text'>{{item.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%" *ngIf="checkContentLoad() === true">
+            <div *ngFor="let catalog of menuItems; let index = index" class="catalog_preview_box">
+                <div class="title_box">
+                    <span class="title_text">{{catalog.name | uppercase}}</span>
+                    <a [routerLink]="['/catalog/' + catalog.id]" target="_blank" routerLinkActive="router-link-active"  class="text_link">xem tất cả</a>
+                </div>
+                <div class="menu_product">
+                    <div *ngFor="let product of filterProductByCatalogId(catalog.id); let j = index" class="product_box">
+                        <div class="avatar_box">
+                            <img class="avatar_img" [src]="getProductPicture(product.avatarLink)">
+                        </div>
+                        <div class="info_box">
+                            <span class="brand_text">{{product.brand | uppercase}}</span>
+                            <span class="name_text">{{product.name}}</span>
+                            <span class="price_text">Price:</span>
+                            <span class="price_text" style="color: blue">{{product.price | formatVnd}}</span>
+                            <button class="btn_buy" mat-stroked-button color="primary">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <router-outlet></router-outlet >
     </div>
     

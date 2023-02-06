@@ -13,21 +13,35 @@ import { PageNotFoundComponent } from './components/shared/components/page-not-f
 
 //angular material
 import {MatInputModule} from '@angular/material/input'
-import {MatAutocompleteModule} from '@angular/material/autocomplete'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+//ng bootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import '@angular/localize/init';
+// pipes
+import { FormatVndPipe } from './components/shared/pipes/formatVnd/format-vnd.pipe';
+// call api
+import { HttpClientModule } from '@angular/common/http';
+import { CatalogComponent } from './components/catalog/catalog/catalog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FormatVndPipe,
+    CatalogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
     MatAutocompleteModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule,
+    MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

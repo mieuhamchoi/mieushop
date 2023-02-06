@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+$fontMenuText: 'Oswald', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap');
+$fontProductName: 'Exo', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+$fontPrice: 'Roboto Mono', monospace;
 $maxHP: 60px;
 $maxWC: 1400px;
 .page_box {
@@ -12,8 +18,185 @@ $maxWC: 1400px;
     }
     .container_box {
         width: $maxWC;
-        height: calc(100vh - $maxHP);
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+        .menu_box {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1em;
+            .carousel_menu {
+                width: 100%;
+                .picsum-img-wrapper {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    img {
+                        width: 100%;
+                        max-height: 400px;
+                        object-fit: fill;
+                    }
+                }
+            }
+            .menu_pop {
+                font-size: 1em;
+                position: absolute;
+                left: 1em;
+                width: 150px;
+                height: 350px;
+                border-radius: 1em;
+                background-color: rgb(255,255,255);
+                display: flex;
+                flex-direction: column;
+                z-index: 10;
+                padding: 0.5em;
+                .menu-item {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    margin: 0.25em 0;
+                    text-decoration: none;
+                    .item--img {
+                        margin-right: 1em;
+                        width: 1.5em;
+                        height: 1.5em;
+                    }
+                    .item--text {
+                        font-size: 1em;
+                        font-family: $fontMenuText;
+                    }
+                    &:hover {
+                        transform: scale(1.1);
+                        color: blue;
+                    }
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .catalog_preview_box {
+            width: 100%;
+            height: 420px;
+            background-image: url(../../../assets/img/ui/catalog_preview_bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            margin: 1em 0;
+            .title_box {
+                width: 100%;
+                height: 75px;
+                border-bottom: 1px solid grey;
+                position: relative;
+                font-size: 1em;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                .title_text {
+                    font-size: 1.5em;
+                    position: absolute;
+                    top: 0.5em;
+                    left: 1em;
+                    color: white;
+                    font-family: $fontMenuText;
+                }
+                .text_link {
+                    color: white;
+                    font-size: 1.2em;
+                    cursor: pointer;
+                    margin-right: 1em;
+                    text-decoration: underline;
+                    &:hover {
+                        transform: scale(1.1);
+                        color: blue;
+                    }
+                }
+            }
+            .menu_product {
+                width: 100%;
+                flex: 1;
+                font-size: 1em;
+                padding: 1em;
+                overflow-x: auto;
+                overflow-y: hidden;
+                display: flex;
+                align-items: center;
+                .product_box {
+                    min-width: 200px;
+                    min-height: 320px;
+                    width: 200px;
+                    height: 100%;
+                    background-color: white;
+                    padding: 0.5em;
+                    border-radius: 1em;
+                    margin: 0 1em;
+                    .avatar_box {
+                        width: 100%;
+                        height: 60%;
+                        cursor: pointer;
+                        .avatar_img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: fill;
+                            &:hover {
+                                transform: scale(1.05);
+                            }
+                        }
+                    }
+                    .info_box {
+                        display: flex;
+                        flex-direction: column;
+                        .brand_text {
+                            font-family: $fontMenuText;
+                            color: grey;
+                            font-size: 1.2em;
+                        }
+                        .name_text {
+                            font-family: $fontProductName;
+                            font-size: 1em;
+                            color: grey;
+                        }
+                        .price_text {
+                            font-family: $fontPrice;
+                            font-size: 1em;
+                        }
+                        .btn_buy {
+                            font-size: 0.7em;
+                        }
+                    }
+                }
+            }
+        }
     }
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+    //display: none;
+}
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 2px grey; 
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: rgba(35,39,42,0.5); 
+border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: rgba(35,39,42,0.5); 
 }

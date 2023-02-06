@@ -1,6 +1,19 @@
-
+$maxHP: 60px;
+$maxWC: 1400px;
 .page_box {
     width: 100%;
     height: 100vh;
     font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .header_box {
+        width: 100%;
+    }
+    .container_box {
+        width: $maxWC;
+        height: calc(100vh - $maxHP);
+        display: flex;
+        justify-content: center;
+    }
 }

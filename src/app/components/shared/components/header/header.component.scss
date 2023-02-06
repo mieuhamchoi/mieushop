@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+$fontCartText: 'Roboto', sans-serif;
 $maxHP: 60px;
 $maxWC: 1400px;
 .page_box {
@@ -9,9 +11,9 @@ $maxWC: 1400px;
     .page_container {
         width: $maxWC;
         height: 100%;
-        //background-color: rgb(240,190,108);
         display: flex;
         align-items: center;
+        position: relative;
         .logo_box {
             width: 350px;
             height: 100%;
@@ -30,6 +32,29 @@ $maxWC: 1400px;
             display: flex;
             justify-content: center;
             align-items: center;
+            .form_input {
+                width: 100%;
+                transform: translateY(15%);
+            }
+        }
+        .cart_box {
+            position: absolute;
+            right: 2em;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .cart_icon {
+                font-size: 3em;
+                color: white;
+            }
+            .cart_text {
+                font-size: 1em;
+                color: white;
+                font-family: $fontCartText;
+            }
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 }

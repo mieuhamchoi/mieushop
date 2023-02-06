@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { CartService } from '../shared/services/cart/cart.service';
 import { CommonService } from '../shared/services/common/common.service';
 import { ProductService } from '../shared/services/product/product.service';
 
@@ -42,7 +43,7 @@ export class HomeComponent {
 
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel | undefined;
 
-  constructor(private productService: ProductService, public commonService: CommonService) {}
+  constructor(private productService: ProductService, public commonService: CommonService, public cartService: CartService) {}
 
   togglePaused() {
 		if (this.paused) {

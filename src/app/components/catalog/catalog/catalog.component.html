@@ -14,7 +14,7 @@
                 <span class="name_text">{{ product.name }}</span>
                 <span class="price_text">Price:</span>
                 <span class="price_text" style="color: blue">{{product.price | formatVnd}}</span>
-                <button class="btn_buy" mat-stroked-button color="primary">Thêm vào giỏ hàng</button>
+                <button (click)="cartService.addToCart(product)" class="btn_buy" mat-stroked-button color="primary">Thêm vào giỏ hàng</button>
             </div>
         </a>
     </div>

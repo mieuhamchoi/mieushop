@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonService } from '../../shared/services/common/common.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../shared/services/product/product.service';
+import { CartService } from '../../shared/services/cart/cart.service';
 interface Catalog {
 	id: number;
 	name: string;
@@ -33,7 +34,7 @@ export class ProductComponent {
   };
   public catalogList: Catalog[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, public cartService: CartService) {}
 
   public ngOnInit() {
     this.productId = Number(this.route.snapshot.paramMap.get('productId'));
@@ -67,5 +68,4 @@ export class ProductComponent {
   public getProductPicture(link: string): string {
     return window.location.origin + "/assets/img/dienthoai/" + link;
   }
-
 }

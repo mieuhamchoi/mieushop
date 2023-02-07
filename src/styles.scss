@@ -2,7 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+// MDB SCSS
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
+// Font Awesome
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
 *{ 
     margin: 0;
     padding: 0;
@@ -10,6 +16,7 @@
     font-size: 15px;
     box-sizing: border-box;
 }
+
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

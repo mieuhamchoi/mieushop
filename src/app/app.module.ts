@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// angular form
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // dùng để các thứ liên quan tới form
+
 // routing
 import { AppRoutingModule } from './app-routing.module';
 // compoent app
@@ -28,7 +31,9 @@ import { CatalogComponent } from './components/catalog/catalog/catalog.component
 import { ProductComponent } from './components/product/product/product.component';
 //ngx-bootstrap
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-
+// mdb bootsrap
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +54,11 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    MdbCheckboxModule,
+    MdbFormsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

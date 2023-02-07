@@ -61,7 +61,7 @@ $maxWC: 1400px;
         .cart_pop_box {
             width: 1400px;
             max-height: 700px;
-            min-height: 700px;
+            min-height: 400px;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -108,6 +108,23 @@ $maxWC: 1400px;
                     position: sticky;
                     top: 0;
                 }
+                .input_amount_box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .total_text {
+                position: absolute;
+                right: 0;      
+                font-size: 1.8em;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: grey;
+                font-weight: 900;
+                z-index: 11;
+            }
+            .form_input {
+                width: 500px;
             }
         }
     }

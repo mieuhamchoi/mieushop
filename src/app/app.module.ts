@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './components/shared/components/page-not-f
 import {MatInputModule} from '@angular/material/input'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+
 //ng bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import '@angular/localize/init';
@@ -24,6 +26,8 @@ import { FormatVndPipe } from './components/shared/pipes/formatVnd/format-vnd.pi
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogComponent } from './components/catalog/catalog/catalog.component';
 import { ProductComponent } from './components/product/product/product.component';
+//ngx-bootstrap
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ import { ProductComponent } from './components/product/product/product.component
     NgbModule,
     MatButtonModule,
     HttpClientModule,
+    MatTableModule,
+    TooltipModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

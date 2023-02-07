@@ -15,6 +15,9 @@ $maxWC: 1400px;
     align-items: center;
     .header_box {
         width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 11;
     }
     .container_box {
         width: $maxWC;
@@ -30,6 +33,9 @@ $maxWC: 1400px;
             display: flex;
             align-items: center;
             margin-bottom: 1em;
+            position: sticky;
+            top: 60px;
+            z-index: 10;
             .carousel_menu {
                 width: 100%;
                 .picsum-img-wrapper {

@@ -56,4 +56,13 @@ export class CartService {
       alert("Thành công thêm vào giỏ hàng!")
     }
   }
+  public getCart() {
+    let cartLocalStorage = localStorage.getItem('cart');
+    if (cartLocalStorage == null) {
+      return []
+    }else {
+      let cart = JSON.parse(cartLocalStorage);
+      return cart
+    }
+  }
 }

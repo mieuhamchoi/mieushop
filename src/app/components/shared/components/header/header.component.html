@@ -16,12 +16,50 @@
                 </mat-autocomplete>
             </mat-form-field>
         </div>
-        <div class="cart_box">
+        <div (click)="openCart()" class="cart_box">
             <span class="cart_icon material-symbols-outlined">garden_cart</span>
             <span class="cart_text">Bạn có ({{cartService.countCart()}}) sản phẩm trong giỏ hàng</span>
         </div>
-        <div class="cart_pop_box">
-            
+        <div *ngIf="isShowCart" class="cart_pop_box border border-black p-2">
+            <div class="title_box">
+                <span class="cart_icon material-symbols-outlined">garden_cart</span>
+                <span class="title_text">Giỏ Hàng Của Bạn</span>
+            </div>
+            <img (click)="closeCart()" class="close_box" src="../../../../../assets/img/ui/close.svg">
+            <div class="table_box">
+                <table mat-table [dataSource]="cart" class="mat-elevation-z8">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="productName">
+                        <th mat-header-cell *matHeaderCellDef>Tên Sản Phẩm</th>
+                        <td mat-cell *matCellDef="let element"> {{element.product.name}} </td>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="productPrice">
+                        <th mat-header-cell *matHeaderCellDef> Giá </th>
+                        <td mat-cell *matCellDef="let element"> {{element.product.price}} </td>
+                    </ng-container>
+                
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="productAmount">
+                        <th mat-header-cell *matHeaderCellDef> Số lượng </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-raised-button>-</button>
+                             {{element.amount}} 
+                            <button mat-raised-button>+</button>
+                        </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="productNote">
+                        <th mat-header-cell *matHeaderCellDef> Ghi chú </th>
+                        <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="tableColumn"></tr>
+                    <tr mat-row *matRowDef="let row; columns: tableColumn;"></tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

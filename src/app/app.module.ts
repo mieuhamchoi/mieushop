@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/shared/components/page-not-found/page-not-found.component';
-
+import { LearnAngularComponent } from './components/learnAngular/learnAngular.component';
+import { ChildrenComponent } from './components/learnAngular/children/children.component';
 //angular material
 import {MatInputModule} from '@angular/material/input'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -34,6 +35,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // mdb bootsrap
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,8 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
     FormatVndPipe,
     CatalogComponent,
     ProductComponent,
+    LearnAngularComponent,
+    ChildrenComponent,
   ],
   imports: [
     BrowserModule,

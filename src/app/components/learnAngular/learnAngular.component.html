@@ -1,0 +1,7 @@
+<p>Learn Angular</p>
+<input [(ngModel)]="name" type="text">
+<button (click)="isDestroy = !isDestroy">Destroy / Show</button>
+<br>
+<span *ngIf="isDestroy">adad</span>
+<br>
+<!-- <app-children #children name="{{name}}"></app-children> -->

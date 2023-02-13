@@ -35,6 +35,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // mdb bootsrap
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { LearnTailwindComponent } from './components/learn-tailwind/learn-tailwind.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
     ProductComponent,
     LearnAngularComponent,
     ChildrenComponent,
+    LearnTailwindComponent,
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,7 @@ export class HeaderComponent {
   public cart: ProductElement[] = [];
   public productList: Product[] = [];
   public searchInput:string = '';
-
+  // use module form
   public formData2 = this.formBuilder.group({
     name: ['', Validators.required],
     phone: ['',Validators.min(0)],
@@ -57,6 +57,7 @@ export class HeaderComponent {
       console.log('loi', er)
     })
   }
+
   public productFilter() {
     if (this.searchInput === '') {
       return this.productList;
@@ -72,18 +73,22 @@ export class HeaderComponent {
       return kq;
     }
   }
+
   public openCart()  {
     this.isShowCart = true;
     this.cart = this.cartService.getCart(); // get cart
   }
+
   public closeCart() {
     this.isShowCart = false;
   }
+
   public increaseAmount(productId: number) {
     if (this.cartService.increaseAmount(productId)) {
       this.cart = this.cartService.getCart(); // get cart
     }
   }
+
   public reduceAmount(productAmount: number,productId: number) {
     if (productAmount == 1) {
       if (confirm('Bạn muốn xóa sản phẩm này ?')) {
@@ -97,6 +102,7 @@ export class HeaderComponent {
       }
     }
   }
+
   public getIndex(productId: number):number {
     for (let i in this.cart) {
       if (this.cart[i].product.id == productId) {
@@ -105,6 +111,7 @@ export class HeaderComponent {
     }
     return 0
   }
+
   public submitForm() {
     if (this.cartService.createOrder(this.formData2.value)) {
       alert('Đặt hàng thành công!')

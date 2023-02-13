@@ -26,6 +26,7 @@ export class CartService {
       return result
     }
   }
+
   public addToCart(product: any) {
     let cartLocalStorage = localStorage.getItem('cart');
     if (cartLocalStorage == null) {
@@ -62,6 +63,7 @@ export class CartService {
       alert("Thành công thêm vào giỏ hàng!")
     }
   }
+
   public getCart() {
     let cartLocalStorage = localStorage.getItem('cart');
     if (cartLocalStorage == null) {
@@ -71,6 +73,7 @@ export class CartService {
       return cart
     }
   }
+
   public increaseAmount(productId: number) {
     let cartLocalStorage = localStorage.getItem('cart');
     if (cartLocalStorage == null) {
@@ -88,6 +91,7 @@ export class CartService {
       return true
     }
   }
+
   public reduceAmount(productId: number) {
     let cartLocalStorage = localStorage.getItem('cart');
     if (cartLocalStorage == null) {
@@ -109,6 +113,7 @@ export class CartService {
       return true
     }
   }
+
   public totalCart() {
     let cartLocalStorage = localStorage.getItem('cart');
     if (cartLocalStorage == null) {
@@ -122,6 +127,7 @@ export class CartService {
       return total
     }
   }
+
   public createOrderServer(product: any,guest: any):Observable<any> {
       let payLoad = {
         productId: product.id,
@@ -133,6 +139,8 @@ export class CartService {
       }
     return this.httpClient.post<any>('http://localhost:3000/orders', payLoad, this.httpOptions)
   }
+
+  // use http client call api
   public createOrder(guest: any) {
     let cartLocalStorage = localStorage.getItem('cart');
     if (cartLocalStorage == null) {

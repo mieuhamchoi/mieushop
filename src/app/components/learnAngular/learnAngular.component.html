@@ -1,7 +1,8 @@
 <p>Learn Angular</p>
 <input [(ngModel)]="name" type="text">
-<button (click)="isDestroy = !isDestroy">Destroy / Show</button>
+<app-children #children name="{{name}}"></app-children>
 <br>
-<span *ngIf="isDestroy">adad</span>
-<br>
-<!-- <app-children #children name="{{name}}"></app-children> -->
+<p>Learn Dynamic Component</p>
+<!-- Create a container to catch the dynamic component's content -->
+<button class="rounded-xl border-1 border-solid border-black" (click)="createComponentBaseOnConfig()">Create</button>
+<ng-container #containerDynamicComponent></ng-container>

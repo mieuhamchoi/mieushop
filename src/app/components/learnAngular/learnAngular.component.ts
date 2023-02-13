@@ -1,5 +1,22 @@
-import { AfterContentChecked, AfterContentInit, Component, ContentChild, OnDestroy } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, ContentChild, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
 import { ChildrenComponent } from './children/children.component';
+import { WidgeOneComponent } from './widge-one/widge-one.component';
+import { WidgeTwoComponent } from './widge-two/widge-two.component';
+
+const componentConfig = [
+  {
+    component: () => import('./widge-one/widge-one.component').then(it => it.WidgeOneComponent),
+    inputs: {
+      name: 'widge one - Profanis'
+    } 
+  },
+  {
+    component: () => import('./widge-two/widge-two.component').then(it => it.WidgeTwoComponent),
+    inputs: {
+      name: 'widge two - Nam'
+    } 
+  }
+]
 
 @Component({
   selector: 'app-learn-angular',
@@ -9,7 +26,29 @@ import { ChildrenComponent } from './children/children.component';
 export class LearnAngularComponent implements AfterContentChecked, AfterContentInit, OnDestroy  {
   public name:string = '';
   public isDestroy = true;
-  @ContentChild('children') contentChild!: ChildrenComponent; // ~~ Viewchild
+  //@ContentChild('children') contentChild!: ChildrenComponent; // ~~ Viewchild
+  @ViewChild('containerDynamicComponent', {read: ViewContainerRef}) containerDynamicComponent!: ViewContainerRef;
+
+  createComponentBaseOnConfig() {
+    componentConfig.forEach(async componentConfig => {
+      const componentIstance = await componentConfig.component();
+      let componentRef =  this.containerDynamicComponent.createComponent(componentIstance);
+
+      Object.entries(componentConfig.inputs).forEach(([key, value]) => {
+        componentRef.setInput(key, value)
+      })
+    })
+  }
+
+  createComponent() {
+    this.containerDynamicComponent.clear();
+    let widgeOneRef =  this.containerDynamicComponent.createComponent(WidgeOneComponent);
+    //widgeOneRef.instance.name = "Hải" // not active join to onChanges component lifecycle
+    widgeOneRef.setInput('name', 'Hải')
+    let widgeTwoRef = this.containerDynamicComponent.createComponent(WidgeTwoComponent);
+    //widgeTwoRef.instance.name = "Tiến"
+    widgeTwoRef.setInput('name', 'Chiến')
+  }
 
   ngAfterContentInit() {
  
